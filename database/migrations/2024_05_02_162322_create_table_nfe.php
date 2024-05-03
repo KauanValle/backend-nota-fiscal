@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('nfe', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('cnpj_cpf_prestador', 14);
+            $table->double('nota_valor');
+            $table->double('nota_impostos');
+            $table->string('nota_chave', 44);
+            $table->dateTime('nota_data_recebimento');
+            $table->dateTime('nota_data_emissao');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('nfe');
     }
 };

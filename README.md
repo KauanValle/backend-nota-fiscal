@@ -1,14 +1,10 @@
 
 # Setup Docker Laravel 10 com PHP 8.1
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
+Creditos do projeto laravel com docker: Especializa TI
 
 ### Passo a passo
-Clone Repositório
 ```sh
-git clone -b laravel-10-com-php-8.1 https://github.com/especializati/setup-docker-laravel.git app-laravel
-```
-```sh
-cd app-laravel
+cd backend-nota-fiscal
 ```
 
 
@@ -20,9 +16,6 @@ cp .env.example .env
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-APP_NAME="Especializa Ti"
-APP_URL=http://localhost:8989
-
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
@@ -37,6 +30,9 @@ SESSION_DRIVER=redis
 REDIS_HOST=redis
 REDIS_PASSWORD=null
 REDIS_PORT=6379
+
+AUTHORIZATION_API_TOKEN="F52627B4F08D09E5CE65B810AA57925E"
+API_URL_VERACIDADE="http://localhost:3000" (Caso não funcione com localhost, pegue o IPv4 e coloque antes da porta).
 ```
 
 

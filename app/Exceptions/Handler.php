@@ -2,11 +2,27 @@
 
 namespace App\Exceptions;
 
+use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
+    public function render($request, Throwable $e)
+    {
+        $json = [
+            'success' => false,
+            'data' => [
+                'error' => [
+                    'code' => $e->getCode(),
+                    'message' => json_decode($e->getMessage()),
+                ],
+            ]
+        ];
+
+        return response()->json($json, $e->getCode());
+    }
+
     /**
      * A list of exception types with their corresponding custom log levels.
      *
